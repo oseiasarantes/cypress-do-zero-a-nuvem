@@ -111,4 +111,68 @@ it('enviar um formulário usando um comando personalizável que possui argumento
   cy.get('.success').should('be.visible');
 });
 
+it('seleciona o produto Youtube da lista, pelo texto', () => {
+  cy.get('#product').select('YouTube').should('have.value', 'youtube');
+})
+
+it('seleciona o produto Mentoria da lista, pelo value', () => {
+  cy.get('#product').select('mentoria').should('have.value', 'mentoria');
+})
+
+it('seleciona o produto Blog da lista, pelo índice', () => {
+  cy.get('select').select(1).should('have.value', 'blog');
+})
+
+it('marca o campo radio para os tipos presentes', () => {
+  cy.get('input[value="ajuda"]').check().should('have.value', 'ajuda');
+  cy.get('input[value="elogio"]').check().should('be.checked', 'elogio');
+  cy.get('input[value="feedback"]').check().should('have.value', 'feedback');
+})
+
+it('marca cada campo radio com each ou wrap', () => {
+  cy.get('input[type="radio"]')
+  .each( elementoRadio => {
+    cy.wrap(elementoRadio).check().should('be.checked')
+  })
+})
+
+it('marca ambos os checkboxes e depois desmarca o ultimo', () => {
+  cy.get('input[type="checkbox"]')
+    .check()
+    .should('be.checked')
+    .last().uncheck()
+    .should('not.be.checked');
+})
+
+it('seleciona arquivo', () => {
+  cy.get('#file-upload')
+    .selectFile('cypress/fixtures/example.json')
+    .should(input => {
+      expect(input[0].files[0].name).to.equal('example.json');
+    });
+})
+
+it('seleciona um arquivo com a função drag-drop', () => {
+  cy.get('#file-upload')
+    .selectFile('cypress/fixtures/example.json', {action: 'drag-drop'})
+    .should(inputObject => {
+      expect(inputObject[0].files[0].name).to.equal('example.json');
+    })
+})
+
+it('seleciona um arquivo com um alias para uma fixture', () => {
+  cy.fixture('example.json').as('sampleFile');
+
+  cy.get('#file-upload')
+    .selectFile('@sampleFile')
+    .should(inputObject => {
+      expect(inputObject[0].files[0].name).to.equal('example.json');
+    })
+})
+
+it('acessa nova página de política de privacidade removendo o target', () => {
+  cy.contains('a', 'Política de Privacidade').invoke('removeAttr', 'target').click();
+  cy.title().should('eq', 'Central de Atendimento ao Cliente TAT - Política de Privacidade');
+})
+
 })
