@@ -1,28 +1,29 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# Cypress Project
 
-👋 Seja bem-vindo(a)!
+<img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="45" height="45"/>         <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cypressio/cypressio-original.svg" width="45" height="45"/>
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+Projeto destinado ao aprendizado de Cypress para uso em testes automatizados de frontentd.
 
-## O que você vai aprender?
+## Pré-requisitos
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+É preciso que você tenha Node.js e npm instalados para rodar esse projeto.
 
-## Vamos começar?
+> Aqui temos as versões `v18.15.0` e `9.5.0` do Node.js e npm, respectivamente. Sugiro que utilize as mesmas ou as versões mais recentes.
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+## Instalação
+
+Execute `npm install` (ou `npm i` para versão mais curta) para instalar as dev dependencies.
+
+## Testes
+
+> **Nota:** Antes de rodar os testes, faça uma cópia do arquivo `cypress.env.example.json` como `cypress.env.json`, para que nos testes reais, você insira credenciais válidas para os testes.
+>
+> O arquivo `cypress.env.json` está incluso no [`.gitignore`](./.gitignore) e isso te deixa seguro de que informações confidenciais não sejam versionadas.
+
+Execute `npm test` (ou `npm t` para versão mais curta) para rodar os testes no modo headless.
+
+Ou, execute `npm run cy:open` a fim de abrir o Cypress no modo interativo.
 
 ___
 
-Este é um curso da **Escola Talking About Testing**.
+Esse projeto foi feito atualizado durante os estudos por [Oséias](https://github.com/oseiasarantes).
