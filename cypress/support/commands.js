@@ -16,7 +16,7 @@ Cypress.Commands.add('preencheCamposObrigatoriosComArgumentos', data => {
     cy.contains('.button', 'Enviar').click();
 });
 
-Cypress.Commands.add('preencheValoresObrigatoriosPadraoOuEnviados', (data = {
+Cypress.Commands.add('preencheCamposComValoresObrigatoriosPadraoOuPorArgumento', (data = {
     firstName: 'Chico',
     lastName: 'de Alzira',
     email: 'chidodealzira@gmail.com',
